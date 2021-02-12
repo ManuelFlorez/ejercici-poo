@@ -2,20 +2,19 @@ package co.com.sofka.domain;
 
 public class Televisor extends Producto{
 
-    private int tamano;
-    private boolean isSintonizadorTDT;
+    private final int tamano;
+    private final boolean sintonizadorTDT;
 
-    public Televisor(String consumo, String procedencia, int tamano, boolean isSintonizadorTDT) {
+    public Televisor(String consumo, String procedencia, int tamano, boolean sintonizadorTDT) {
         super(consumo, procedencia);
         this.tamano = tamano;
-        this.isSintonizadorTDT = isSintonizadorTDT;
+        this.sintonizadorTDT = sintonizadorTDT;
     }
 
     @Override
     public double precio() {
         double precio = super.precio();
-        precio += valorAdicionalTamano();
-        precio += isSintonizadorTDT ? 250000 : 0 ;
+        precio += valorAdicionalTamano() + valorAdicionalSintonizador();
         return precio;
     }
 
@@ -23,6 +22,8 @@ public class Televisor extends Producto{
         return tamano > 40 ? super.precio() * 0.3: 0;
     }
 
-
+    private int valorAdicionalSintonizador() {
+        return sintonizadorTDT ? 250000 : 0;
+    }
 
 }

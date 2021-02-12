@@ -2,8 +2,8 @@ package co.com.sofka.domain;
 
 public class Producto {
 
-    private String procedencia;
-    private String consumo;
+    private final String procedencia;
+    private final String consumo;
 
     public Producto(String consumo, String procedencia) {
         this.procedencia = procedencia;
@@ -11,24 +11,20 @@ public class Producto {
     }
 
     public double valorProcedencia() {
-        double resultado = 0;
         switch (procedencia) {
-            case "Nacional" : resultado = 250000; break;
-            case "Importado" : resultado = 350000; break;
-            default: resultado = 0;
+            case "Nacional" : return 250000;
+            case "Importado" : return 350000;
+            default: return 0;
         }
-        return resultado;
     }
 
     public double valorConsumo() {
-        double resultado = 0;
         switch (consumo) {
-            case "A" : resultado = 450000; break;
-            case "B" : resultado = 350000; break;
-            case "C" : resultado = 250000; break;
-            default: resultado = 0;
+            case "A" : return 450000;
+            case "B" : return 350000;
+            case "C" : return 250000;
+            default: return 0;
         }
-        return resultado;
     }
 
     public double precio() {

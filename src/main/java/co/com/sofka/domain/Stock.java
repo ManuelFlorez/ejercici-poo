@@ -24,10 +24,12 @@ public class Stock {
     }
 
     private List<Producto> misTelevisores() {
-        return misProductos.stream().filter(isTelevisor()).collect(Collectors.toList());
+        return misProductos.stream()
+                .filter(soyTelevisor())
+                .collect(Collectors.toList());
     }
 
-    private Predicate<Producto> isTelevisor() {
+    private Predicate<Producto> soyTelevisor() {
         return producto -> producto instanceof Televisor;
     }
 
@@ -36,18 +38,17 @@ public class Stock {
     }
 
     private List<Producto> misNeveras() {
-        return misProductos.stream().filter(isNevera()).collect(Collectors.toList());
+        return misProductos.stream()
+                .filter(soyNevera())
+                .collect(Collectors.toList());
     }
 
-    private Predicate<Producto> isNevera() {
+    private Predicate<Producto> soyNevera() {
         return producto -> producto instanceof Nevera;
-    }
-
-    public List<Producto> getMisProductos() {
-        return misProductos;
     }
 
     public void setMisProductos(List<Producto> misProductos) {
         this.misProductos = misProductos;
     }
+
 }

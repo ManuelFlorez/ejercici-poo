@@ -1,7 +1,7 @@
 package co.com.sofka.domain;
 
 public class Nevera extends Producto {
-    private int capacidadLitros;
+    private final int capacidadLitros;
 
     public Nevera(String consumo, String procedencia, int capacidadLitros) {
         super(consumo, procedencia);
@@ -21,8 +21,11 @@ public class Nevera extends Producto {
         int litros = capacidadLitros - 120;
         int contador = contadorDe10En10(litros);
         double precio = super.precio();
-        double porcentaje = contador * 0.05;
-        return precio + (precio * porcentaje);
+        return precio + (precio * porcentaje(contador));
+    }
+
+    private double porcentaje(int contador) {
+        return contador * 0.05;
     }
 
     private int contadorDe10En10(int litros) {
