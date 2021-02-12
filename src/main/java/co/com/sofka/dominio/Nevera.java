@@ -1,4 +1,4 @@
-package co.com.sofka.domain;
+package co.com.sofka.dominio;
 
 public class Nevera extends Producto {
     private final int capacidadLitros;

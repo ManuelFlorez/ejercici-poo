@@ -1,4 +1,4 @@
-package co.com.sofka.domain;
+package co.com.sofka.dominio;
 
 public class Televisor extends Producto{
 

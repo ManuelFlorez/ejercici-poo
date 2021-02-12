@@ -1,4 +1,4 @@
-package co.com.sofka.domain;
+package co.com.sofka.dominio;
 
 import java.util.List;
 import java.util.function.Predicate;
